@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Meu Carro JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Meu Carro</h1>
+
+
+  <img id="carroImagem" src="imagem/images.jpg" alt="Imagem do Carro">
+
+
+  <p id="modeloCarro">Modelo: </p>
+  <p id="corCarro">Cor: </p>
+
+
+  <p id="velocidadeAtual">Velocidade: 0 km/h</p>
+  <p id="mensagem"></p>
+
+
+  <button id="ligarBtn">Ligar</button>
+  <button id="desligarBtn">Desligar</button>
+  <button id="acelerarBtn">Acelerar</button>
+
+
+  <audio id="somLigar" src="sons/SOM ACELERAÇÃO FERRARI 458 (Gil França Efeitos e Sons).mp3" preload="auto"></audio>
+  <!-- Adicionado -->
+
+<script src="script.js"></script>
+<script src="esportivo.js"></script>
+<script src="caminhao.js"></script>
+<script src="logica.js"></script>
+
+
+  <div class="container">
+    <h1>Carro Esportivo</h1>
+    <img id="esportivoImg" src="imagem/carro-3d-com-fundo-simples_23-2150796882.avif" alt="">
+    <p id="modeloCarro">Modelo: </p>
+    <p id="corCarro">Cor: </p>
+    <button onclick="ligar()">ligar</button>
+    <button onclick="desligar()">desligar</button>
+    <button onclick="acelerar(10)">Acelerar</button>
+    <button onclick="frear(5)">Frear</button>
+    <button onclick="ativarTurbo()">Ativar Turbo</button>
+    <button onclick="desativarTurbo()">Desativar Turbo</button>
+    <p id="statusEsportivo"></p>
+
+    <h1>Caminhão</h1>
+    <label for="capacidadeCarga">Capacidade de Carga (kg):</label>
+    <input type="number" id="capacidadeCarga" value="10000">
+    <button onclick="ligarCaminhao()">Ligar</button>
+    <button onclick="desligarCaminhao()">Desligar</button>
+    <button onclick="acelerarCaminhao(10)">Acelerar</button>
+    <button onclick="frearCaminhao(5)">Frear</button>
+    <label for="pesoCarga">Peso da Carga (kg):</label>
+    <input type="number" id="pesoCarga" value="1000">
+    <button onclick="carregarCaminhao()">Carregar</button>
+    <button onclick="descarregarCaminhao()">Descarregar</button>
+    <p id="statusCaminhao"></p>
+
+
+
+    
+
+
+    <script>
+      carregar(peso);
+      console.log("Carregando:", peso, "Carga atual:", this.cargaAtual, "Capacidade:", this.capacidadeCarga);
+      if (this.cargaAtual + peso <= this.capacidadeCarga) {
+        this.cargaAtual += peso;
+        console.log(`Caminhão carregado. Carga atual: ${this.cargaAtual} kg`);
+      } else {
+        console.log("Carga excede a capacidade do caminhão!");
+      }
+
+
+      descarregarCaminhao(peso);
+      console.log("Descarregando:", peso, "Carga atual:", this.cargaAtual);
+      this.cargaAtual = Math.max(0, this.cargaAtual - peso);
+      console.log(`Caminhão descarregado. Carga atual: ${this.cargaAtual} kg`);
+
+    </script>
+</body>
+
+</html>
