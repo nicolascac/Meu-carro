@@ -1,89 +1,97 @@
-// Definindo a classe Carro
 class Carro {
-  constructor(modelo, cor) {
-    this.modelo = modelo;
-    this.cor = cor;
-    this.velocidade = 0;
-    this.ligado = false;
-    this.mensagemElement = document.getElementById("mensagem");
-    this.modeloElement = document.getElementById("modeloCarro");
-    this.corElement = document.getElementById("corCarro");
-
-    this.somLigar = document.getElementById("somLigar"); // Busca o elemento de áudio no HTML
-    this.somLigar.volume = 0.5; // Ajusta o volume (opcional)
-
-    this.atualizarInfoCarro();
-  }
-
-  ligar() {
-    if (!this.ligado) {
-      this.ligado = true;
-      this.exibirMensagem("Carro ligado!");
-      this.somLigar.play(); // Toca o som
-    } else {
-      this.exibirMensagem("O carro já está ligado!");
+    constructor(modelo, cor) {
+        this.modelo = modelo;
+        this.cor = cor;
+        this.velocidade = 0; // Novo atributo: velocidade
+        this.ligado = false;
     }
-  }
 
-  desligar() {
-    if (this.ligado) {
-      this.ligado = false;
-      this.velocidade = 0;
-      this.exibirMensagem("Carro Desligado!");
-      atualizarVelocidadeNaTela();
-    } else {
-      this.exibirMensagem("O carro já está desligado!");
+    ligar() {
+        if (!this.ligado) {
+            this.ligado = true;
+            this.exibirMensagem("Carro ligado!");
+            console.log("Carro ligado!");
+        } else {
+            this.exibirMensagem("O carro já está ligado.");
+            console.log("O carro já está ligado.");
+        }
+        this.atualizarEstadoCarroNaTela();
     }
-  }
 
-  acelerar(incremento) {
-    if (this.ligado) {
-      this.velocidade += incremento;
-      this.exibirMensagem(`Acelerando para ${this.velocidade} km/h`);
-      atualizarVelocidadeNaTela();
-    } else {
-      this.exibirMensagem("O carro precisa estar ligado para acelerar!");
+    desligar() {
+        if (this.ligado) {
+            this.ligado = false;
+            this.velocidade = 0;
+            this.atualizarVelocidadeNaTela();
+            this.exibirMensagem("Carro desligado!");
+            console.log("Carro desligado!");
+        } else {
+            this.exibirMensagem("O carro já está desligado.");
+            console.log("O carro já está desligado.");
+        }
+        this.atualizarEstadoCarroNaTela();
     }
-  }
 
-  exibirMensagem(mensagem) {
-    this.mensagemElement.textContent = mensagem;
-  }
+    acelerar() {
+        if (this.ligado) {
+            this.velocidade += 20; // Aumenta a velocidade em 20 km/h
+            this.atualizarVelocidadeNaTela();
+            this.exibirMensagem("Acelerando! Velocidade: " + this.velocidade + " km/h");
+            console.log("Acelerando! Velocidade: " + this.velocidade + " km/h");
+        } else {
+            this.exibirMensagem("O carro precisa estar ligado para acelerar.");
+            console.log("O carro precisa estar ligado para acelerar.");
+        }
+    }
 
-  atualizarInfoCarro() {
-    this.modeloElement.textContent = `Modelo: ${this.modelo}`;
-    this.corElement.textContent = `Cor: ${this.cor}`;
-  }
+    buzinar() {  // Nova função para buzinar
+        this.exibirMensagem("BEEP BEEP!");
+        console.log("BEEP BEEP!");
+    }
+
+    // Funções para atualizar a velocidade e o estado do carro na tela
+    atualizarVelocidadeNaTela() {
+        document.getElementById("velocidadeCarro").textContent = this.velocidade;
+    }
+
+    atualizarEstadoCarroNaTela() {
+        const estado = this.ligado ? "Ligado" : "Desligado";
+        document.getElementById("estadoCarro").textContent = estado;
+    }
+
+    // Nova função para exibir mensagens
+    exibirMensagem(mensagem) {
+        document.getElementById("mensagemCarro").textContent = mensagem;
+    }
 }
 
-// Criando um objeto Carro
-const meuCarro = new Carro("Fusca", "Azul");
+// Criação de um objeto Carro
+const meuCarro = new Carro("Sedan", "Vermelho");
 
-// Obtendo referências aos elementos HTML
-const ligarBtn = document.getElementById("ligarBtn");
-const desligarBtn = document.getElementById("desligarBtn");
-const acelerarBtn = document.getElementById("acelerarBtn");
-const velocidadeAtualElement = document.getElementById("velocidadeAtual");
+// Exibição das informações do carro na página
+document.getElementById("modeloCarro").textContent = meuCarro.modelo;
+document.getElementById("corCarro").textContent = meuCarro.cor;
 
 
-// Funções para atualizar a tela
-function atualizarVelocidadeNaTela() {
-  velocidadeAtualElement.textContent = `Velocidade: ${meuCarro.velocidade} km/h`;
-}
 
-
-// Adicionando os event listeners aos botões
-ligarBtn.addEventListener("click", function() {
-  meuCarro.ligar();
+// Adicionando eventos aos botões
+document.getElementById("ligarBotao").addEventListener("click", function() {
+    meuCarro.ligar();
 });
 
-desligarBtn.addEventListener("click", function() {
-  meuCarro.desligar();
+document.getElementById("desligarBotao").addEventListener("click", function() {
+    meuCarro.desligar();
 });
 
-acelerarBtn.addEventListener("click", function() {
-  meuCarro.acelerar(10); // Acelera em 10 km/h
+document.getElementById("acelerarBotao").addEventListener("click", function() {
+    meuCarro.acelerar();
 });
 
-// Inicialização (exibe a velocidade inicial)
-atualizarVelocidadeNaTela();
+document.getElementById("buzinarBotao").addEventListener("click", function() { // Adiciona o evento para o botão buzinar
+    meuCarro.buzinar();
+});
+
+
+// Inicializa o estado do carro na tela
+meuCarro.atualizarEstadoCarroNaTela(); // Usando a função do objeto
+meuCarro.atualizarVelocidadeNaTela();

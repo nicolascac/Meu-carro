@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Garagem Inteligente</title>
+    <link rel="stylesheet" href="garagem.css">
+</head>
+<body>
+    <h1>Simulador de Veículos</h1>
+
+    <div id="mensagem"></div>  <!-- Div para exibir mensagens -->
+
+    <!-- Tela Principal (Garagem) -->
+    <div id="telaPrincipal" class="tela">
+        <h2>Garagem</h2>
+        <button id="irParaCarro">Ver Carro</button>
+        <button id="irParaEsportivo">Ver Carro Esportivo</button>
+        <button id="irParaCaminhao">Ver Caminhão</button>
+    </div>
+
+    <!-- Tela do Carro -->
+    <div id="telaCarro" class="tela">
+        <h2>Carro</h2>
+<img src="imagem/images.jpg" alt="" srcset="">
+
+        <div id="infoCarro" class="info-veiculo"></div>
+        <button id="ligarCarro">Ligar</button>
+        <button id="desligarCarro">Desligar</button>
+        <button id="acelerarCarro">Acelerar</button>
+        <button id="buzinarCarro">Buzinar</button>
+        <button id="voltarParaGaragemCarro">Voltar para Garagem</button>
+    </div>
+
+    <!-- Tela do Carro Esportivo -->
+    <div id="telaEsportivo" class="tela">
+        <h2>Carro Esportivo</h2>
+        <img src="imagem/carro-3d-com-fundo-simples_23-2150796882.avif" alt="" srcset="">
+        <div id="infoEsportivo" class="info-veiculo"></div>
+        <button id="ligarEsportivo">Ligar</button>
+        <button id="desligarEsportivo">Desligar</button>
+        <button id="acelerarEsportivo">Acelerar</button>
+        <button id="buzinarEsportivo">Buzinar</button>
+        <button id="ativarTurbo">Ativar Turbo</button>
+        <button id="desativarTurbo">Desativar Turbo</button>
+        <button id="voltarParaGaragemEsportivo">Voltar para Garagem</button>
+    </div>
+
+    <!-- Tela do Caminhão -->
+    <div id="telaCaminhao" class="tela">
+        <h2>Caminhão</h2>
+        <img src="imagem/190296-eurotrucks2-2016-03-04-23-23-10-903.jpg" alt="" srcset="">
+        <div id="infoCaminhao" class="info-veiculo"></div>
+        <button id="ligarCaminhao">Ligar</button>
+        <button id="desligarCaminhao">Desligar</button>
+        <button id="acelerarCaminhao">Acelerar</button>
+        <button id="buzinarCaminhao">Buzinar</button>
+        <label for="pesoCarga">Peso da Carga (kg):</label>
+        <input type="number" id="pesoCarga">
+        <button id="carregarCaminhao">Carregar</button>
+        <button id="voltarParaGaragemCaminhao">Voltar para Garagem</button>
+    </div>
+
+    <script src="garagem.js"></script>
+</body>
+</html>

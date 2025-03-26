@@ -1,24 +1,24 @@
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
-  }
+    background-color: #f0f0f0;
+    margin: 20px;
+}
 
-  body h1{
+#carro-imagem {
+    width: 600px; /* Ajuste o tamanho conforme necessário */
+    margin-bottom: 20px;
+}
 
-    color: blue;
-  }
-  
-  #carroImagem {
-    width: 200px; /* Ajuste o tamanho conforme necessário */
-  }
-  
-  button {
+button {
     padding: 10px 20px;
     font-size: 16px;
-    margin: 5px;
     cursor: pointer;
-  }
+    margin: 5px;
+}
 
-  button {
-    color: blue;
-  }
+#caminhao-imagem{
+    width: 600px; /* Ajuste o tamanho conforme necessário */
+    margin-bottom: 20px;
+
+}

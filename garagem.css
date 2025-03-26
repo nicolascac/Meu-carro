@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    color: #00b300;
+    text-align: center;
+}
+
+button {
+    background-color: #15ff00;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00b300;
+}
+
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.veiculo-imagem {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.telaVeiculo {
+    text-align: center;
+    padding: 20px;
+}
+
+.voltar {
+    background-color: #6c757d;
+    color: white;
+}
+
+.voltar:hover {
+    background-color: #5a6268;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.tela {
+    display: none;
+    margin-bottom: 20px;
+}
+
+.info-veiculo {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.info-veiculo p {
+    margin: 5px 0;
+}
+
+#mensagem {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+}
