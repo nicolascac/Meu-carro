@@ -1,64 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Garagem Inteligente</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garagem Moderna - Simulador</title> <!-- Título Novo -->
+
+    <!-- Fontes Google (Ex: Lato ou Roboto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (Opcional, mas recomendado) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- SEU NOVO ARQUIVO CSS -->
     <link rel="stylesheet" href="garagem.css">
+
 </head>
 <body>
-    <h1>Simulador de Veículos</h1>
+    <div class="main-container">
 
-    <div id="mensagem"></div>  <!-- Div para exibir mensagens -->
+        <h1><i class="fas fa-warehouse"></i> Simulador de Veículos</h1>
 
-    <!-- Tela Principal (Garagem) -->
-    <div id="telaPrincipal" class="tela">
-        <h2>Garagem</h2>
-        <button id="irParaCarro">Ver Carro</button>
-        <button id="irParaEsportivo">Ver Carro Esportivo</button>
-        <button id="irParaCaminhao">Ver Caminhão</button>
-    </div>
+        <!-- BOTÃO DE NAVEGAÇÃO -->
+        <a href="teste.html" class="botao-navegacao">
+            Ir para Garagem com Manutenção <i class="fas fa-wrench"></i>
+        </a>
+        <hr class="separator">
 
-    <!-- Tela do Carro -->
-    <div id="telaCarro" class="tela">
-        <h2>Carro</h2>
-<img src="imagem/images.jpg" alt="" srcset="">
+        <div id="mensagem" class="mensagem-feedback"></div>
 
-        <div id="infoCarro" class="info-veiculo"></div>
-        <button id="ligarCarro">Ligar</button>
-        <button id="desligarCarro">Desligar</button>
-        <button id="acelerarCarro">Acelerar</button>
-        <button id="buzinarCarro">Buzinar</button>
-        <button id="voltarParaGaragemCarro">Voltar para Garagem</button>
-    </div>
+        <!-- Tela Principal (Garagem) -->
+        <div id="telaPrincipal" class="tela tela-ativa">
+            <h2><i class="fas fa-car-garage"></i> Escolha seu Veículo</h2>
+            <div class="botoes-veiculo">
+                <button id="irParaCarro" class="btn-escolha"><i class="fas fa-car"></i> Carro Comum</button>
+                <button id="irParaEsportivo" class="btn-escolha"><i class="fas fa-car-side"></i> Carro Esportivo</button>
+                <button id="irParaCaminhao" class="btn-escolha"><i class="fas fa-truck"></i> Caminhão</button>
+            </div>
+        </div>
 
-    <!-- Tela do Carro Esportivo -->
-    <div id="telaEsportivo" class="tela">
-        <h2>Carro Esportivo</h2>
-        <img src="imagem/carro-3d-com-fundo-simples_23-2150796882.avif" alt="" srcset="">
-        <div id="infoEsportivo" class="info-veiculo"></div>
-        <button id="ligarEsportivo">Ligar</button>
-        <button id="desligarEsportivo">Desligar</button>
-        <button id="acelerarEsportivo">Acelerar</button>
-        <button id="buzinarEsportivo">Buzinar</button>
-        <button id="ativarTurbo">Ativar Turbo</button>
-        <button id="desativarTurbo">Desativar Turbo</button>
-        <button id="voltarParaGaragemEsportivo">Voltar para Garagem</button>
-    </div>
+        <!-- Tela do Carro -->
+        <div id="telaCarro" class="tela">
+            <button id="voltarParaGaragemCarro" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</button>
+            <h2><i class="fas fa-car"></i> Carro Comum</h2>
+            <img src="img/images.jpg" alt="Carro comum azul" class="img-veiculo">
+            <div id="infoCarro" class="info-veiculo">Status: Carregando...</div>
+            <div class="botoes-acao">
+                 <button id="ligarCarro" class="btn btn-ligar"><i class="fas fa-power-off"></i> Ligar</button>
+                 <button id="desligarCarro" class="btn btn-desligar"><i class="fas fa-power-off"></i> Desligar</button>
+                 <button id="acelerarCarro" class="btn btn-acao"><i class="fas fa-gauge-high"></i> Acelerar</button>
+                 <button id="buzinarCarro" class="btn btn-acao"><i class="fas fa-bullhorn"></i> Buzinar</button>
+            </div>
+        </div>
 
-    <!-- Tela do Caminhão -->
-    <div id="telaCaminhao" class="tela">
-        <h2>Caminhão</h2>
-        <img src="imagem/190296-eurotrucks2-2016-03-04-23-23-10-903.jpg" alt="" srcset="">
-        <div id="infoCaminhao" class="info-veiculo"></div>
-        <button id="ligarCaminhao">Ligar</button>
-        <button id="desligarCaminhao">Desligar</button>
-        <button id="acelerarCaminhao">Acelerar</button>
-        <button id="buzinarCaminhao">Buzinar</button>
-        <label for="pesoCarga">Peso da Carga (kg):</label>
-        <input type="number" id="pesoCarga">
-        <button id="carregarCaminhao">Carregar</button>
-        <button id="voltarParaGaragemCaminhao">Voltar para Garagem</button>
-    </div>
+        <!-- Tela do Carro Esportivo -->
+        <div id="telaEsportivo" class="tela">
+            <button id="voltarParaGaragemEsportivo" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</button>
+            <h2><i class="fas fa-car-side"></i> Carro Esportivo</h2>
+            <img src="img/png-transparent-ford-gt-shelby-mustang-california-special-mustang-2018-ford-mustang-gt-premium-ford-car-performance-car-vehicle.png" alt="Mustang esportivo vermelho" class="img-veiculo">
+            <div id="infoEsportivo" class="info-veiculo">Status: Carregando...</div>
+             <div class="botoes-acao">
+                 <button id="ligarEsportivo" class="btn btn-ligar"><i class="fas fa-power-off"></i> Ligar</button>
+                 <button id="desligarEsportivo" class="btn btn-desligar"><i class="fas fa-power-off"></i> Desligar</button>
+                 <button id="acelerarEsportivo" class="btn btn-acao"><i class="fas fa-gauge-high"></i> Acelerar</button>
+                 <button id="buzinarEsportivo" class="btn btn-acao"><i class="fas fa-bullhorn"></i> Buzinar</button>
+                 <button id="ativarTurbo" class="btn btn-turbo"><i class="fas fa-bolt"></i> Ativar Turbo</button>
+                 <button id="desativarTurbo" class="btn btn-turbo-off"><i class="fas fa-ban"></i> Desativar Turbo</button>
+            </div>
+        </div>
 
+        <!-- Tela do Caminhão -->
+        <div id="telaCaminhao" class="tela">
+             <button id="voltarParaGaragemCaminhao" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</button>
+            <h2><i class="fas fa-truck"></i> Caminhão</h2>
+            <img src="img/images%20(1).jpg" alt="Caminhão Volvo na estrada" class="img-veiculo">
+            <div id="infoCaminhao" class="info-veiculo">Status: Carregando...</div>
+             <div class="botoes-acao">
+                 <button id="ligarCaminhao" class="btn btn-ligar"><i class="fas fa-power-off"></i> Ligar</button>
+                 <button id="desligarCaminhao" class="btn btn-desligar"><i class="fas fa-power-off"></i> Desligar</button>
+                 <button id="acelerarCaminhao" class="btn btn-acao"><i class="fas fa-gauge-high"></i> Acelerar</button>
+                 <button id="buzinarCaminhao" class="btn btn-acao"><i class="fas fa-bullhorn"></i> Buzinar</button>
+            </div>
+            <div class="carga-controle">
+                <label for="pesoCarga"><i class="fas fa-weight-hanging"></i> Peso da Carga (kg):</label>
+                <input type="number" id="pesoCarga" placeholder="0">
+                <button id="carregarCaminhao" class="btn btn-carga"><i class="fas fa-truck-loading"></i> Carregar</button>
+            </div>
+        </div>
+
+    </div> <!-- Fim .main-container -->
+
+    <!-- Seu script JS -->
     <script src="garagem.js"></script>
 </body>
 </html>

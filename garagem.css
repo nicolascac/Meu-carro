@@ -1,83 +1,243 @@
+/* --- Global Styles & Font --- */
+* {
+    box-sizing: border-box; /* Makes padding/border calculation easier */
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4;
+    font-family: 'Roboto', sans-serif; /* Modern sans-serif font */
+    background-color: #f4f7f6; /* Light grey background */
     color: #333;
-}
-
-h1, h2 {
-    color: #00b300;
-    text-align: center;
-}
-
-button {
-    background-color: #15ff00;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 5px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #00b300;
-}
-
-input[type="number"] {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin: 5px;
-}
-
-.veiculo-imagem {
-    width: 200px;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.telaVeiculo {
-    text-align: center;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    min-height: 100vh;
     padding: 20px;
 }
 
-.voltar {
-    background-color: #6c757d;
-    color: white;
+.container {
+    background-color: #ffffff; /* White container background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 700px; /* Limit maximum width */
+    text-align: center; /* Center text by default */
 }
 
-.voltar:hover {
-    background-color: #5a6268;
+h1 {
+    color: #2c3e50; /* Dark blue-grey title */
+    margin-bottom: 25px;
+    font-weight: 700;
 }
 
-body {
-    font-family: sans-serif;
-}
-
-.tela {
-    display: none;
+h2 {
+    color: #34495e; /* Slightly lighter blue-grey */
     margin-bottom: 20px;
+    border-bottom: 2px solid #ecf0f1; /* Light grey underline */
+    padding-bottom: 10px;
+    display: inline-block; /* Keep underline tight */
+}
+
+p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* --- Tela Management --- */
+.tela {
+    display: none; /* Hide all screens initially */
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 20px;
+    background-color: #fdfdfd; /* Slightly off-white screen background */
+    animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+    position: relative; /* Needed for absolute positioning of voltar button */
+}
+
+.tela.ativa {
+    display: block; /* Show the active screen */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Message Area --- */
+.mensagem-area {
+    padding: 12px 18px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-weight: bold;
+    display: none; /* Hidden by default, shown by JS */
+    background-color: #e7f3fe; /* Light blue background */
+    color: #2962ff; /* Blue text */
+    border: 1px solid #b3d4fc;
+}
+.mensagem-area.erro { /* Optional style for error messages */
+     background-color: #fdecea;
+    color: #c53929;
+    border: 1px solid #f7c6c0;
+}
+.mensagem-area.sucesso { /* Optional style for success messages */
+     background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+
+/* --- Button Styles --- */
+button {
+    cursor: pointer;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-weight: 500;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px); /* Slight lift on hover */
+}
+
+button:active {
+    transform: translateY(0px); /* Press down effect */
+}
+
+/* Specific Button Types */
+.btn {
+    color: #fff;
+    min-width: 100px; /* Ensure buttons have minimum width */
+}
+
+.btn-ligar { background-color: #2ecc71; } /* Green */
+.btn-desligar { background-color: #e74c3c; } /* Red */
+.btn-acao { background-color: #3498db; } /* Blue */
+.btn-turbo-on { background-color: #f39c12; } /* Orange */
+.btn-turbo-off { background-color: #95a5a6; } /* Grey */
+.btn-carga { background-color: #8e44ad; } /* Purple */
+
+.btn-voltar {
+    background-color: #7f8c8d; /* Grey */
+    color: white;
+    position: absolute; /* Position top-left */
+    top: 15px;
+    left: 15px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+}
+.btn-voltar i { margin-right: 5px; }
+
+.btn-navegacao {
+    background-color: #3498db; /* Blue */
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+}
+.btn-navegacao i { margin-right: 8px; } /* Space for icon */
+
+/* --- Button Containers --- */
+.botoes-navegacao,
+.botoes-acao {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    justify-content: center; /* Center buttons */
+    gap: 10px; /* Space between buttons */
+}
+
+/* --- Vehicle Info & Image --- */
+.img-veiculo {
+    max-width: 80%; /* Limit image width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+    margin: 15px auto; /* Center image */
+    display: block; /* Ensure block display for margin auto */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
 }
 
 .info-veiculo {
+    background-color: #ecf0f1; /* Light grey background for info */
+    padding: 15px;
+    margin: 20px auto; /* Center and add vertical space */
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #555;
+    max-width: 90%;
+    border-left: 4px solid #3498db; /* Accent border */
+}
+
+/* --- Truck Specific Controls --- */
+.carga-controle {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #f8f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.carga-controle label {
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+.carga-controle input[type="number"] {
+    padding: 8px 10px;
     border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100px; /* Fixed width for number input */
 }
 
-.info-veiculo p {
-    margin: 5px 0;
+/* --- Font Awesome Icons (ensure you added the script tag in HTML) --- */
+.fas { /* Basic styling if needed, Font Awesome handles most */
+    line-height: inherit; /* Align icons better with text */
 }
 
-#mensagem {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
+/* --- Basic Responsiveness --- */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
+    button {
+        font-size: 0.9rem;
+        padding: 8px 14px;
+    }
+    .btn-navegacao {
+         padding: 10px 20px;
+         font-size: 1rem;
+    }
+    .botoes-acao, .botoes-navegacao {
+        gap: 8px;
+    }
+    .img-veiculo {
+        max-width: 95%;
+    }
+    .btn-voltar {
+        top: 10px;
+        left: 10px;
+        padding: 6px 10px;
+    }
 }
