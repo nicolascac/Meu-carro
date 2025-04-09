@@ -1,243 +1,360 @@
-/* --- Global Styles & Font --- */
 * {
-    box-sizing: border-box; /* Makes padding/border calculation easier */
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif; /* Modern sans-serif font */
-    background-color: #f4f7f6; /* Light grey background */
+    font-family: 'Lato', sans-serif;
+    background-color: #f4f7f6; /* Fundo suave */
     color: #333;
     line-height: 1.6;
-    display: flex;
+    padding: 20px; /* Espaçamento nas bordas */
+    display: flex; /* Centralizar o container principal */
     justify-content: center;
-    align-items: flex-start; /* Align items to the top */
+    align-items: flex-start; /* Alinha no topo se o conteúdo for menor */
     min-height: 100vh;
-    padding: 20px;
 }
 
-.container {
-    background-color: #ffffff; /* White container background */
-    padding: 30px;
+/* --- Container Principal --- */
+.main-container {
+    background-color: #ffffff; /* Fundo branco para o conteúdo */
+    padding: 30px 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 700px; /* Limit maximum width */
-    text-align: center; /* Center text by default */
+    max-width: 800px; /* Largura máxima para melhor leitura */
+    text-align: center; /* Centraliza títulos e botões de escolha */
+}
+
+/* --- Títulos --- */
+h1, h2 {
+    color: #2c3e50; /* Azul escuro */
+    margin-bottom: 20px;
 }
 
 h1 {
-    color: #2c3e50; /* Dark blue-grey title */
-    margin-bottom: 25px;
+    font-size: 2.2em;
     font-weight: 700;
+    margin-bottom: 30px; /* Mais espaço após o título principal */
+}
+
+h1 i {
+    margin-right: 10px;
+    color: #3498db; /* Azul para o ícone principal */
 }
 
 h2 {
-    color: #34495e; /* Slightly lighter blue-grey */
-    margin-bottom: 20px;
-    border-bottom: 2px solid #ecf0f1; /* Light grey underline */
+    font-size: 1.8em;
+    font-weight: 400;
+    border-bottom: 1px solid #ecf0f1; /* Linha sutil abaixo do título da tela */
     padding-bottom: 10px;
-    display: inline-block; /* Keep underline tight */
+    margin-bottom: 25px;
 }
 
-p {
-    margin-bottom: 15px;
+h2 i {
+    margin-right: 8px;
     color: #555;
 }
 
-/* --- Tela Management --- */
-.tela {
-    display: none; /* Hide all screens initially */
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    margin-top: 20px;
-    background-color: #fdfdfd; /* Slightly off-white screen background */
-    animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
-    position: relative; /* Needed for absolute positioning of voltar button */
-}
-
-.tela.ativa {
-    display: block; /* Show the active screen */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- Message Area --- */
-.mensagem-area {
-    padding: 12px 18px;
-    margin: 15px 0;
-    border-radius: 5px;
-    font-weight: bold;
-    display: none; /* Hidden by default, shown by JS */
-    background-color: #e7f3fe; /* Light blue background */
-    color: #2962ff; /* Blue text */
-    border: 1px solid #b3d4fc;
-}
-.mensagem-area.erro { /* Optional style for error messages */
-     background-color: #fdecea;
-    color: #c53929;
-    border: 1px solid #f7c6c0;
-}
-.mensagem-area.sucesso { /* Optional style for success messages */
-     background-color: #e8f5e9;
-    color: #2e7d32;
-    border: 1px solid #c8e6c9;
-}
-
-
-/* --- Button Styles --- */
-button {
-    cursor: pointer;
-    padding: 10px 18px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    margin: 5px;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-    font-weight: 500;
-}
-
-button:hover {
-    opacity: 0.9;
-    transform: translateY(-1px); /* Slight lift on hover */
-}
-
-button:active {
-    transform: translateY(0px); /* Press down effect */
-}
-
-/* Specific Button Types */
-.btn {
+/* --- Botão de Navegação Principal --- */
+.botao-navegacao {
+    display: inline-block; /* Para poder aplicar margens e padding */
+    background-color: #1abc9c; /* Verde água */
     color: #fff;
-    min-width: 100px; /* Ensure buttons have minimum width */
-}
-
-.btn-ligar { background-color: #2ecc71; } /* Green */
-.btn-desligar { background-color: #e74c3c; } /* Red */
-.btn-acao { background-color: #3498db; } /* Blue */
-.btn-turbo-on { background-color: #f39c12; } /* Orange */
-.btn-turbo-off { background-color: #95a5a6; } /* Grey */
-.btn-carga { background-color: #8e44ad; } /* Purple */
-
-.btn-voltar {
-    background-color: #7f8c8d; /* Grey */
-    color: white;
-    position: absolute; /* Position top-left */
-    top: 15px;
-    left: 15px;
-    padding: 8px 12px;
-    font-size: 0.9rem;
-}
-.btn-voltar i { margin-right: 5px; }
-
-.btn-navegacao {
-    background-color: #3498db; /* Blue */
-    color: white;
     padding: 12px 25px;
-    font-size: 1.1rem;
+    border-radius: 25px; /* Bordas arredondadas */
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 20px; /* Espaço antes da linha */
 }
-.btn-navegacao i { margin-right: 8px; } /* Space for icon */
 
-/* --- Button Containers --- */
-.botoes-navegacao,
-.botoes-acao {
-    margin-top: 20px;
+.botao-navegacao i {
+    margin-left: 8px;
+}
+
+.botao-navegacao:hover {
+    background-color: #16a085; /* Verde mais escuro no hover */
+    transform: translateY(-2px); /* Leve elevação */
+}
+
+/* --- Separador --- */
+.separator {
+    border: none;
+    height: 1px;
+    background-color: #ecf0f1; /* Cinza claro */
+    margin: 25px 0; /* Espaçamento vertical */
+}
+
+/* --- Mensagem de Feedback --- */
+.mensagem-feedback {
+    background-color: #eafaf1; /* Fundo verde claro */
+    color: #1abc9c; /* Verde água */
+    border: 1px solid #a3e9d7;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    display: none; /* Começa escondido, JS controla */
+    text-align: left;
+}
+
+.mensagem-feedback.erro { /* Classe adicional para erros */
+    background-color: #fbeaea;
+    color: #e74c3c;
+    border-color: #f5b7b1;
+}
+
+/* --- Estilos das Telas (Geral) --- */
+.tela {
+    display: none; /* Esconde todas as telas por padrão */
+    padding: 15px 0; /* Espaçamento interno vertical */
+    text-align: left; /* Alinha conteúdo das telas à esquerda */
+    animation: fadeIn 0.5s ease-in-out; /* Animação de entrada */
+}
+
+.tela-ativa {
+    display: block; /* Mostra a tela ativa */
+}
+
+/* Animação Fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* --- Tela Principal (Escolha) --- */
+#telaPrincipal h2 {
+    text-align: center; /* Centraliza título da escolha */
+    border-bottom: none; /* Remove linha do H2 aqui */
+    margin-bottom: 30px;
+}
+
+.botoes-veiculo {
     display: flex;
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
-    justify-content: center; /* Center buttons */
-    gap: 10px; /* Space between buttons */
+    justify-content: center; /* Centraliza os botões */
+    gap: 20px; /* Espaço entre os botões */
+    flex-wrap: wrap; /* Quebra linha se não couber */
 }
 
-/* --- Vehicle Info & Image --- */
-.img-veiculo {
-    max-width: 80%; /* Limit image width */
-    height: auto; /* Maintain aspect ratio */
+.btn-escolha {
+    flex-basis: 200px; /* Largura base */
+    padding: 25px 20px;
+    font-size: 1.1em;
+    background-color: #3498db; /* Azul */
+    color: white;
+    border: none;
     border-radius: 8px;
-    margin: 15px auto; /* Center image */
-    display: block; /* Ensure block display for margin auto */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    border: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex; /* Para alinhar ícone e texto */
+    flex-direction: column; /* Ícone acima do texto */
+    align-items: center;
+    gap: 10px; /* Espaço entre ícone e texto */
+}
+
+.btn-escolha i {
+    font-size: 2em; /* Ícone maior */
+}
+
+.btn-escolha:hover {
+    background-color: #2980b9; /* Azul mais escuro */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+/* --- Telas de Veículos (Carro, Esportivo, Caminhão) --- */
+.btn-voltar {
+    background: none;
+    border: 1px solid #bdc3c7; /* Borda cinza */
+    color: #34495e; /* Azul acinzentado */
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-bottom: 25px; /* Espaço abaixo do botão voltar */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    float: left; /* Alinha à esquerda */
+}
+
+.btn-voltar i {
+    margin-right: 5px;
+}
+
+.btn-voltar:hover {
+    background-color: #ecf0f1; /* Fundo cinza claro no hover */
+    color: #2c3e50;
+}
+
+.img-veiculo {
+    display: block; /* Para poder centralizar com margem */
+    max-width: 80%; /* Limita a largura */
+    height: auto; /* Mantém proporção */
+    margin: 0 auto 25px auto; /* Centraliza e adiciona espaço abaixo */
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .info-veiculo {
-    background-color: #ecf0f1; /* Light grey background for info */
+    background-color: #ecf0f1; /* Fundo cinza claro */
     padding: 15px;
-    margin: 20px auto; /* Center and add vertical space */
     border-radius: 5px;
-    font-size: 1rem;
+    margin-bottom: 25px;
+    font-style: italic;
     color: #555;
-    max-width: 90%;
-    border-left: 4px solid #3498db; /* Accent border */
+    text-align: center; /* Centraliza texto do status */
 }
 
-/* --- Truck Specific Controls --- */
-.carga-controle {
-    margin-top: 25px;
-    padding: 15px;
-    background-color: #f8f9f9;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
+.botoes-acao {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: wrap; /* Quebra linha em telas menores */
+    gap: 15px; /* Espaço entre os botões */
+    justify-content: center; /* Centraliza os botões de ação */
+    margin-bottom: 25px; /* Espaço antes de controles específicos (carga) */
+    padding-top: 15px;
+    border-top: 1px solid #ecf0f1; /* Separador sutil */
+}
+
+/* Estilo base para botões de ação */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    display: inline-flex; /* Para alinhar ícone e texto */
     align-items: center;
-    gap: 10px;
+    gap: 8px; /* Espaço entre ícone e texto */
+}
+
+.btn:active {
+    transform: scale(0.98); /* Efeito de clique */
+}
+
+/* Cores específicas dos botões */
+.btn-ligar { background-color: #2ecc71; } /* Verde */
+.btn-ligar:hover { background-color: #27ae60; }
+
+.btn-desligar { background-color: #e74c3c; } /* Vermelho */
+.btn-desligar:hover { background-color: #c0392b; }
+
+.btn-acao { background-color: #3498db; } /* Azul */
+.btn-acao:hover { background-color: #2980b9; }
+
+.btn-turbo { background-color: #f39c12; } /* Laranja */
+.btn-turbo:hover { background-color: #e67e22; }
+
+.btn-turbo-off { background-color: #95a5a6; } /* Cinza */
+.btn-turbo-off:hover { background-color: #7f8c8d; }
+
+/* --- Controles Específicos (Caminhão) --- */
+.carga-controle {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9f9; /* Fundo levemente diferente */
+    border-radius: 5px;
+    border: 1px solid #ecf0f1;
+    display: flex;
+    flex-wrap: wrap; /* Quebra linha se necessário */
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
 .carga-controle label {
-    font-weight: 500;
+    font-weight: bold;
+    color: #555;
+    margin-right: 5px; /* Pequeno espaço antes do input */
+}
+
+.carga-controle label i {
     margin-right: 5px;
 }
 
 .carga-controle input[type="number"] {
-    padding: 8px 10px;
-    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border: 1px solid #bdc3c7;
     border-radius: 4px;
-    font-size: 1rem;
-    width: 100px; /* Fixed width for number input */
+    width: 100px; /* Largura fixa para o input */
+    text-align: right;
 }
 
-/* --- Font Awesome Icons (ensure you added the script tag in HTML) --- */
-.fas { /* Basic styling if needed, Font Awesome handles most */
-    line-height: inherit; /* Align icons better with text */
+/* Estilo do botão carregar */
+.btn-carga {
+    padding: 9px 18px;
+    background-color: #8e44ad; /* Roxo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
-/* --- Basic Responsiveness --- */
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-    .container {
+.btn-carga:hover {
+    background-color: #732d91; /* Roxo mais escuro */
+}
+
+/* --- Responsividade (Exemplo Simples) --- */
+@media (max-width: 768px) {
+    .main-container {
         padding: 20px;
     }
-    h1 {
-        font-size: 1.8rem;
+
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.5em; }
+
+    .botoes-veiculo {
+        flex-direction: column; /* Empilha os botões de escolha */
+        align-items: center; /* Centraliza os botões empilhados */
     }
-    h2 {
-        font-size: 1.4rem;
+
+    .btn-escolha {
+        width: 90%; /* Ocupa mais largura */
+        max-width: 300px; /* Limite */
+        flex-basis: auto; /* Reseta a base flex */
     }
-    button {
-        font-size: 0.9rem;
-        padding: 8px 14px;
-    }
-    .btn-navegacao {
-         padding: 10px 20px;
-         font-size: 1rem;
-    }
-    .botoes-acao, .botoes-navegacao {
-        gap: 8px;
-    }
+
     .img-veiculo {
-        max-width: 95%;
+        max-width: 95%; /* Permite imagem maior em telas menores */
     }
-    .btn-voltar {
-        top: 10px;
-        left: 10px;
-        padding: 6px 10px;
+
+    .botoes-acao {
+        justify-content: space-around; /* Distribui melhor os botões */
+    }
+}
+
+@media (max-width: 480px) {
+    body { padding: 10px; }
+    .main-container { padding: 15px; }
+
+    h1 { font-size: 1.6em; }
+    h2 { font-size: 1.3em; }
+
+    .botao-navegacao, .btn, .btn-escolha, .btn-voltar, .btn-carga {
+        padding: 10px 15px; /* Reduz padding dos botões */
+        font-size: 0.9em;
+    }
+
+    .botoes-acao {
+        flex-direction: column; /* Empilha botões de ação */
+        align-items: stretch; /* Faz botões ocuparem largura */
+    }
+
+    .carga-controle {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .carga-controle input[type="number"] {
+        width: 100%; /* Ocupa toda a largura */
+        margin-bottom: 10px; /* Espaço antes do botão */
     }
 }

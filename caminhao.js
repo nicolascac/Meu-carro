@@ -58,7 +58,7 @@ class Caminhao extends Carro {
 }
 
 // Cria uma instância de Caminhao
-const meuCaminhao = new Caminhao("Caminhão", "verde", 10000);
+const meuCaminhao = new Caminhao("Caminhãozão", "Vermelho", 10000);
 
 // Função para atualizar o status do caminhão na página
 function atualizarCaminhaoStatus() {
