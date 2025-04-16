@@ -1,3 +1,5 @@
+/* garagem.css - Estilos para o Simulador Simples (MOSTRAR.HTML) */
+
 * {
     margin: 0;
     padding: 0;
@@ -9,22 +11,22 @@ body {
     background-color: #f4f7f6; /* Fundo suave */
     color: #333;
     line-height: 1.6;
-    padding: 20px; /* Espaçamento nas bordas */
-    display: flex; /* Centralizar o container principal */
+    padding: 20px;
+    display: flex;
     justify-content: center;
-    align-items: flex-start; /* Alinha no topo se o conteúdo for menor */
+    align-items: flex-start;
     min-height: 100vh;
 }
 
 /* --- Container Principal --- */
 .main-container {
-    background-color: #ffffff; /* Fundo branco para o conteúdo */
+    background-color: #ffffff;
     padding: 30px 40px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 800px; /* Largura máxima para melhor leitura */
-    text-align: center; /* Centraliza títulos e botões de escolha */
+    max-width: 800px;
+    text-align: center;
 }
 
 /* --- Títulos --- */
@@ -36,18 +38,18 @@ h1, h2 {
 h1 {
     font-size: 2.2em;
     font-weight: 700;
-    margin-bottom: 30px; /* Mais espaço após o título principal */
+    margin-bottom: 30px;
 }
 
 h1 i {
     margin-right: 10px;
-    color: #3498db; /* Azul para o ícone principal */
+    color: #3498db;
 }
 
 h2 {
     font-size: 1.8em;
     font-weight: 400;
-    border-bottom: 1px solid #ecf0f1; /* Linha sutil abaixo do título da tela */
+    border-bottom: 1px solid #ecf0f1;
     padding-bottom: 10px;
     margin-bottom: 25px;
 }
@@ -57,17 +59,17 @@ h2 i {
     color: #555;
 }
 
-/* --- Botão de Navegação Principal --- */
+/* --- Botão de Navegação (para Garagem Avançada) --- */
 .botao-navegacao {
-    display: inline-block; /* Para poder aplicar margens e padding */
+    display: inline-block;
     background-color: #1abc9c; /* Verde água */
     color: #fff;
     padding: 12px 25px;
-    border-radius: 25px; /* Bordas arredondadas */
+    border-radius: 25px;
     text-decoration: none;
     font-weight: 700;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-bottom: 20px; /* Espaço antes da linha */
+    margin-top: 20px; /* Espaço acima do botão */
 }
 
 .botao-navegacao i {
@@ -75,50 +77,53 @@ h2 i {
 }
 
 .botao-navegacao:hover {
-    background-color: #16a085; /* Verde mais escuro no hover */
-    transform: translateY(-2px); /* Leve elevação */
+    background-color: #16a085;
+    transform: translateY(-2px);
 }
 
-/* --- Separador --- */
+/* --- Separador Horizontal --- */
 .separator {
     border: none;
     height: 1px;
-    background-color: #ecf0f1; /* Cinza claro */
-    margin: 25px 0; /* Espaçamento vertical */
+    background-color: #ecf0f1;
+    margin: 25px 0;
 }
 
 /* --- Mensagem de Feedback --- */
 .mensagem-feedback {
-    background-color: #eafaf1; /* Fundo verde claro */
-    color: #1abc9c; /* Verde água */
+    background-color: #eafaf1; /* Verde claro (sucesso/info padrão) */
+    color: #1abc9c;
     border: 1px solid #a3e9d7;
-    padding: 15px;
+    padding: 12px 15px; /* Um pouco menor */
     border-radius: 5px;
-    margin-bottom: 25px;
+    margin-top: 15px; /* Espaço acima da mensagem */
+    margin-bottom: 20px;
     font-weight: bold;
-    display: none; /* Começa escondido, JS controla */
+    display: none; /* Começa escondido */
     text-align: left;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
 }
 
-.mensagem-feedback.erro { /* Classe adicional para erros */
-    background-color: #fbeaea;
-    color: #e74c3c;
+/* Estilo para mensagens de erro */
+.mensagem-feedback.erro {
+    background-color: #fbeaea; /* Rosa claro */
+    color: #e74c3c; /* Vermelho */
     border-color: #f5b7b1;
 }
 
-/* --- Estilos das Telas (Geral) --- */
+/* --- Estilos das Telas (Controladas por JS) --- */
 .tela {
-    display: none; /* Esconde todas as telas por padrão */
-    padding: 15px 0; /* Espaçamento interno vertical */
-    text-align: left; /* Alinha conteúdo das telas à esquerda */
-    animation: fadeIn 0.5s ease-in-out; /* Animação de entrada */
+    display: none; /* Esconde por padrão */
+    padding: 15px 0;
+    text-align: left;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 .tela-ativa {
     display: block; /* Mostra a tela ativa */
 }
 
-/* Animação Fade-in */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -127,57 +132,60 @@ h2 i {
 
 /* --- Tela Principal (Escolha) --- */
 #telaPrincipal h2 {
-    text-align: center; /* Centraliza título da escolha */
-    border-bottom: none; /* Remove linha do H2 aqui */
+    text-align: center;
+    border-bottom: none;
     margin-bottom: 30px;
 }
 
 .botoes-veiculo {
     display: flex;
-    justify-content: center; /* Centraliza os botões */
-    gap: 20px; /* Espaço entre os botões */
-    flex-wrap: wrap; /* Quebra linha se não couber */
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .btn-escolha {
-    flex-basis: 200px; /* Largura base */
-    padding: 25px 20px;
-    font-size: 1.1em;
-    background-color: #3498db; /* Azul */
+    flex-basis: 180px; /* Largura base um pouco menor */
+    padding: 20px 15px;
+    font-size: 1.05em;
+    background-color: #3498db;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: flex; /* Para alinhar ícone e texto */
-    flex-direction: column; /* Ícone acima do texto */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 10px; /* Espaço entre ícone e texto */
+    gap: 10px;
 }
 
 .btn-escolha i {
-    font-size: 2em; /* Ícone maior */
+    font-size: 1.8em; /* Ícone um pouco menor */
 }
 
 .btn-escolha:hover {
-    background-color: #2980b9; /* Azul mais escuro */
+    background-color: #2980b9;
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 
-/* --- Telas de Veículos (Carro, Esportivo, Caminhão) --- */
+/* --- Telas de Veículos Específicos --- */
+
+/* Botão Voltar */
 .btn-voltar {
     background: none;
-    border: 1px solid #bdc3c7; /* Borda cinza */
-    color: #34495e; /* Azul acinzentado */
+    border: 1px solid #bdc3c7;
+    color: #34495e;
     padding: 8px 15px;
     border-radius: 20px;
     cursor: pointer;
     font-size: 0.9em;
-    margin-bottom: 25px; /* Espaço abaixo do botão voltar */
+    margin-bottom: 25px;
     transition: background-color 0.3s ease, color 0.3s ease;
-    float: left; /* Alinha à esquerda */
+    float: left; /* Alinha à esquerda, abaixo do H2 */
+    clear: both; /* Garante que fique abaixo do H2 */
 }
 
 .btn-voltar i {
@@ -185,55 +193,79 @@ h2 i {
 }
 
 .btn-voltar:hover {
-    background-color: #ecf0f1; /* Fundo cinza claro no hover */
+    background-color: #ecf0f1;
     color: #2c3e50;
 }
 
+/* Imagem do Veículo */
 .img-veiculo {
-    display: block; /* Para poder centralizar com margem */
-    max-width: 80%; /* Limita a largura */
-    height: auto; /* Mantém proporção */
-    margin: 0 auto 25px auto; /* Centraliza e adiciona espaço abaixo */
+    display: block;
+    max-width: 70%; /* Reduz um pouco a imagem */
+    height: auto;
+    margin: 10px auto 25px auto; /* Margem superior menor */
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    clear: both; /* Garante que fique abaixo do botão voltar */
 }
 
+/* Bloco de Informações do Veículo */
 .info-veiculo {
-    background-color: #ecf0f1; /* Fundo cinza claro */
-    padding: 15px;
+    background-color: #ecf0f1;
+    padding: 15px 20px;
     border-radius: 5px;
     margin-bottom: 25px;
-    font-style: italic;
     color: #555;
-    text-align: center; /* Centraliza texto do status */
+    text-align: left; /* Alinha texto das infos à esquerda */
+    font-size: 0.95em;
+}
+.info-veiculo p {
+    margin: 5px 0;
+}
+.info-veiculo strong {
+    color: #333;
+    min-width: 80px; /* Ajuda a alinhar um pouco os "labels" */
+    display: inline-block;
+}
+/* Estilo para status Ligado/Desligado/Turbo */
+.status-on {
+    color: #27ae60; /* Verde */
+    font-weight: bold;
+}
+.status-off {
+    color: #c0392b; /* Vermelho */
+    font-weight: bold;
 }
 
+
+/* Botões de Ação (Ligar, Acelerar, etc.) */
 .botoes-acao {
     display: flex;
-    flex-wrap: wrap; /* Quebra linha em telas menores */
-    gap: 15px; /* Espaço entre os botões */
-    justify-content: center; /* Centraliza os botões de ação */
-    margin-bottom: 25px; /* Espaço antes de controles específicos (carga) */
-    padding-top: 15px;
-    border-top: 1px solid #ecf0f1; /* Separador sutil */
+    flex-wrap: wrap;
+    gap: 10px 15px; /* Espaço vertical e horizontal */
+    justify-content: center;
+    margin-bottom: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ecf0f1;
 }
 
 /* Estilo base para botões de ação */
 .btn {
-    padding: 10px 20px;
+    padding: 10px 18px; /* Padding ajustado */
     border: none;
     border-radius: 5px;
     color: white;
     cursor: pointer;
     font-size: 0.95em;
     transition: background-color 0.3s ease, transform 0.1s ease;
-    display: inline-flex; /* Para alinhar ícone e texto */
+    display: inline-flex;
     align-items: center;
-    gap: 8px; /* Espaço entre ícone e texto */
+    justify-content: center; /* Centraliza conteúdo (ícone+texto) */
+    gap: 8px;
+    min-width: 110px; /* Largura mínima para consistência */
 }
 
 .btn:active {
-    transform: scale(0.98); /* Efeito de clique */
+    transform: scale(0.98);
 }
 
 /* Cores específicas dos botões */
@@ -256,11 +288,11 @@ h2 i {
 .carga-controle {
     margin-top: 20px;
     padding: 20px;
-    background-color: #f8f9f9; /* Fundo levemente diferente */
+    background-color: #f8f9f9;
     border-radius: 5px;
-    border: 1px solid #ecf0f1;
+    border: 1px solid #e0e6e8; /* Borda um pouco mais visível */
     display: flex;
-    flex-wrap: wrap; /* Quebra linha se necessário */
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 15px;
@@ -269,7 +301,7 @@ h2 i {
 .carga-controle label {
     font-weight: bold;
     color: #555;
-    margin-right: 5px; /* Pequeno espaço antes do input */
+    margin-right: 5px;
 }
 
 .carga-controle label i {
@@ -280,11 +312,11 @@ h2 i {
     padding: 8px 12px;
     border: 1px solid #bdc3c7;
     border-radius: 4px;
-    width: 100px; /* Largura fixa para o input */
+    width: 100px;
     text-align: right;
 }
 
-/* Estilo do botão carregar */
+/* Botão Carregar */
 .btn-carga {
     padding: 9px 18px;
     background-color: #8e44ad; /* Roxo */
@@ -299,62 +331,28 @@ h2 i {
 }
 
 .btn-carga:hover {
-    background-color: #732d91; /* Roxo mais escuro */
+    background-color: #732d91;
 }
 
-/* --- Responsividade (Exemplo Simples) --- */
+/* --- Responsividade --- */
 @media (max-width: 768px) {
-    .main-container {
-        padding: 20px;
-    }
-
+    .main-container { padding: 20px; }
     h1 { font-size: 1.8em; }
     h2 { font-size: 1.5em; }
-
-    .botoes-veiculo {
-        flex-direction: column; /* Empilha os botões de escolha */
-        align-items: center; /* Centraliza os botões empilhados */
-    }
-
-    .btn-escolha {
-        width: 90%; /* Ocupa mais largura */
-        max-width: 300px; /* Limite */
-        flex-basis: auto; /* Reseta a base flex */
-    }
-
-    .img-veiculo {
-        max-width: 95%; /* Permite imagem maior em telas menores */
-    }
-
-    .botoes-acao {
-        justify-content: space-around; /* Distribui melhor os botões */
-    }
+    .botoes-veiculo { flex-direction: column; align-items: center; }
+    .btn-escolha { width: 80%; max-width: 250px; flex-basis: auto; }
+    .img-veiculo { max-width: 85%; }
+    .botoes-acao { justify-content: space-evenly; } /* Espaçamento melhor */
 }
 
 @media (max-width: 480px) {
     body { padding: 10px; }
     .main-container { padding: 15px; }
-
     h1 { font-size: 1.6em; }
     h2 { font-size: 1.3em; }
-
-    .botao-navegacao, .btn, .btn-escolha, .btn-voltar, .btn-carga {
-        padding: 10px 15px; /* Reduz padding dos botões */
-        font-size: 0.9em;
-    }
-
-    .botoes-acao {
-        flex-direction: column; /* Empilha botões de ação */
-        align-items: stretch; /* Faz botões ocuparem largura */
-    }
-
-    .carga-controle {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .carga-controle input[type="number"] {
-        width: 100%; /* Ocupa toda a largura */
-        margin-bottom: 10px; /* Espaço antes do botão */
-    }
+    .botao-navegacao, .btn, .btn-escolha, .btn-voltar, .btn-carga { padding: 10px 15px; font-size: 0.9em; }
+    .botoes-acao { flex-direction: column; align-items: stretch; } /* Empilha botões */
+    .carga-controle { flex-direction: column; align-items: stretch; }
+    .carga-controle input[type="number"] { width: 100%; margin-bottom: 10px; }
+    .img-veiculo { max-width: 95%; }
 }

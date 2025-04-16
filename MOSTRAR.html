@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garagem Moderna - Simulador Simples</title> <!-- Título Atualizado -->
+
+    <!-- Fontes e Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS do Simulador Simples -->
+    <link rel="stylesheet" href="garagem.css">
+
+</head>
+
+<body>
+    <div class="main-container">
+
+        <h1><i class="fas fa-warehouse"></i> Simulador Simples de Veículos</h1>
+
+        <!-- ========================================= -->
+        <!-- Tela Principal (Escolha do Veículo)       -->
+        <!-- ID: telaPrincipal                        -->
+        <!-- ========================================= -->
+        <div id="telaPrincipal" class="tela tela-ativa">
+            <h2><i class="fas fa-car-side"></i> Escolha seu Veículo</h2>
+            <div class="botoes-veiculo">
+                <!-- Botões que chamam mostrarTela() com o ID da tela do veículo correspondente -->
+                <button id="irParaCarro" class="btn-escolha"><i class="fas fa-car"></i> Carro Comum</button>
+                <button id="irParaEsportivo" class="btn-escolha"><i class="fas fa-rocket"></i> Carro Esportivo</button> <!-- Ícone atualizado -->
+                <button id="irParaCaminhao" class="btn-escolha"><i class="fas fa-truck"></i> Caminhão</button>
+            </div>
+             <!-- Botão de Navegação para a Garagem Avançada -->
+             <hr class="separator" style="margin-top: 40px;">
+             <a href="teste.html" class="botao-navegacao">
+                 Ir para Garagem Avançada (com Manutenção) <i class="fas fa-wrench"></i>
+             </a>
+        </div>
+
+        <!-- ========================================= -->
+        <!-- Tela do Carro Comum                       -->
+        <!-- ID: telaCarro                             -->
+        <!-- ========================================= -->
+        <div id="telaCarro" class="tela">
+            <!-- Botão para retornar à tela principal -->
+            <button id="voltarParaGaragemCarro" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</button>
+            <h2><i class="fas fa-car"></i> Carro Comum</h2>
+            <img src="imagem/images.jpg" alt="Carro comum azul" class="img-veiculo">
+            <!-- Div onde as informações do meuCarro serão exibidas -->
+            <div id="infoCarro" class="info-veiculo">Status: Carregando...</div>
+            <!-- Div para mensagens de feedback (ligado, desligado, etc.) -->
+            <div id="mensagemCarroFeedback" class="mensagem-feedback"></div> <!-- ID específico para mensagem -->
+            <!-- Botões de ação que chamam métodos do objeto meuCarro -->
+            <div class="botoes-acao">
+                <button id="ligarCarro" class="btn btn-ligar"><i class="fas fa-power-off"></i> Ligar</button>
+                <button id="desligarCarro" class="btn btn-desligar"><i class="fas fa-power-off"></i> Desligar</button>
+                <button id="acelerarCarro" class="btn btn-acao"><i class="fas fa-gauge-high"></i> Acelerar</button>
+                <button id="buzinarCarro" class="btn btn-acao"><i class="fas fa-bullhorn"></i> Buzinar</button>
+            </div>
+            <!-- Botão de Navegação para a Garagem Avançada (repetido por conveniência) -->
+            <hr class="separator">
+            <a href="teste.html" class="botao-navegacao">
+                Ir para Garagem Avançada <i class="fas fa-wrench"></i>
+            </a>
+        </div>
+
+        <!-- ========================================= -->
+        <!-- Tela do Carro Esportivo                   -->
+        <!-- ID: telaEsportivo                         -->
+        <!-- ========================================= -->
+        <div id="telaEsportivo" class="tela">
+            <button id="voltarParaGaragemEsportivo" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</button>
+            <h2><i class="fas fa-rocket"></i> Carro Esportivo</h2> <!-- Ícone atualizado -->
+            <img src="imagem/carro-3d-com-fundo-simples_23-2150796882.avif" alt="Carro esportivo vermelho" class="img-veiculo">
+            <!-- Div onde as informações do meuCarroEsportivo serão exibidas -->
+            <div id="infoEsportivo" class="info-veiculo">Status: Carregando...</div>
+             <!-- Div para mensagens de feedback -->
+            <div id="mensagemEsportivoFeedback" class="mensagem-feedback"></div>
+            <!-- Botões de ação que chamam métodos do objeto meuCarroEsportivo -->
+            <div class="botoes-acao">
+                <button id="ligarEsportivo" class="btn btn-ligar"><i class="fas fa-power-off"></i> Ligar</button>
+                <button id="desligarEsportivo" class="btn btn-desligar"><i class="fas fa-power-off"></i> Desligar</button>
+                <button id="acelerarEsportivo" class="btn btn-acao"><i class="fas fa-gauge-high"></i> Acelerar</button>
+                <button id="buzinarEsportivo" class="btn btn-acao"><i class="fas fa-bullhorn"></i> Buzinar</button>
+                <button id="ativarTurbo" class="btn btn-turbo"><i class="fas fa-bolt"></i> Ativar Turbo</button>
+                <button id="desativarTurbo" class="btn btn-turbo-off"><i class="fas fa-ban"></i> Desativar Turbo</button>
+            </div>
+            <!-- Botão de Navegação para a Garagem Avançada -->
+            <hr class="separator">
+            <a href="teste.html" class="botao-navegacao">
+                Ir para Garagem Avançada <i class="fas fa-wrench"></i>
+            </a>
+        </div>
+
+
+        <!-- ========================================= -->
+        <!-- Tela do Caminhão                          -->
+        <!-- ID: telaCaminhao                          -->
+        <!-- ========================================= -->
+        <div id="telaCaminhao" class="tela">
+            <button id="voltarParaGaragemCaminhao" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar</button>
+            <h2><i class="fas fa-truck"></i> Caminhão</h2>
+            <img src="imagem/190296-eurotrucks2-2016-03-04-23-23-10-903.jpg" alt="Caminhão na estrada" class="img-veiculo">
+             <!-- Div onde as informações do meuCaminhao serão exibidas -->
+            <div id="infoCaminhao" class="info-veiculo">Status: Carregando...</div>
+             <!-- Div para mensagens de feedback -->
+            <div id="mensagemCaminhaoFeedback" class="mensagem-feedback"></div>
+             <!-- Botões de ação que chamam métodos do objeto meuCaminhao -->
+            <div class="botoes-acao">
+                <button id="ligarCaminhao" class="btn btn-ligar"><i class="fas fa-power-off"></i> Ligar</button>
+                <button id="desligarCaminhao" class="btn btn-desligar"><i class="fas fa-power-off"></i> Desligar</button>
+                <button id="acelerarCaminhao" class="btn btn-acao"><i class="fas fa-gauge-high"></i> Acelerar</button>
+                <button id="buzinarCaminhao" class="btn btn-acao"><i class="fas fa-bullhorn"></i> Buzinar</button>
+            </div>
+            <!-- Controles específicos para carregar o caminhão -->
+            <div class="carga-controle">
+                <label for="pesoCarga"><i class="fas fa-weight-hanging"></i> Peso (kg):</label>
+                <input type="number" id="pesoCarga" placeholder="Ex: 500" min="1">
+                <button id="carregarCaminhao" class="btn btn-carga"><i class="fas fa-truck-loading"></i> Carregar</button>
+            </div>
+             <!-- Botão de Navegação para a Garagem Avançada -->
+            <hr class="separator">
+            <a href="teste.html" class="botao-navegacao">
+                Ir para Garagem Avançada <i class="fas fa-wrench"></i>
+            </a>
+        </div>
+
+    </div> <!-- Fim .main-container -->
+
+    <!-- Script JS do Simulador Simples -->
+    <script src="garagem.js"></script>
+</body>
+</html>

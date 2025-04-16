@@ -33,30 +33,9 @@
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        /* ... (restante dos seus estilos existentes) ... */
-        .form-section h3, .list-section h3 { /* ... */ }
-        .vehicle-item, .maintenance-item, .schedule-item { /* ... */ }
-         .maintenance-item button, .schedule-item button { /* ... */ }
-        .vehicle-item:last-child, .maintenance-item:last-child, .schedule-item:last-child { /* ... */ }
-         .vehicle-item span, .maintenance-item span, .schedule-item span { /* ... */ }
-        label { /* ... */ }
-        input[type="text"], input[type="number"], input[type="datetime-local"], select, textarea { /* ... */ }
-        textarea { /* ... */ }
-        .actions button { /* ... */ }
-        #notificacoes { /* ... */ }
-         #notificacoes.error { /* ... */ }
-        #notificacoes.warning { /* ... */ }
-         #notificacoes.info { /* ... */ }
-         .modal { /* ... */ }
-        .modal-content { /* ... */ }
-        .close-button { /* ... */ }
-        .close-button:hover, .close-button:focus { /* ... */ }
-        #modalDetalhesVeiculo .list-section, #modalDetalhesVeiculo .form-section { /* ... */ }
-        button.warning { /* ... */ }
-        button.warning:hover { /* ... */ }
-         button.small-warning { /* ... */ }
-          button.small-warning:hover { /* ... */ }
+       
     </style>
+ <link rel="stylesheet" href="teste.css">
 </head>
 <body>
     <h1>Garagem Inteligente</h1>
@@ -166,12 +145,16 @@
     </div>
 
 
-    <!-- Adiciona o JS do Flatpickr -->
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <!-- Adiciona o JS do Flatpickr para Português (opcional) -->
-    <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
-    <!-- Nosso script principal -->
-    <script src="script.js"></script> <!-- Assumindo que o JS deste arquivo se chama script.js -->
+    a tag para o módulo principal:
+<!-- Adiciona o JS do Flatpickr -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<!-- Adiciona o JS do Flatpickr para Português (opcional) -->
+<script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+<!-- Nosso script principal como MÓDULO -->
+<script type="module" src="main.js"></script>
+
+</body>
+</html>
 
 </body>
 </html>

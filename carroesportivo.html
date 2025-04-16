@@ -3,30 +3,35 @@
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>carro esportivo</title>
+     <title>Carro Esportivo - Exemplo</title> <!-- Título mais específico -->
+     <!-- Link para o CSS principal (style.css), pode ou não ser o estilo desejado -->
      <link rel="stylesheet" href="style.css">
  </head>
  <body>
-     <h1>Meu Carro esportivo</h1>
- 
-     <img id="carro-imagem" src="img/png-transparent-ford-gt-shelby-mustang-california-special-mustang-2018-ford-mustang-gt-premium-ford-car-performance-car-vehicle.png" alt="Imagem do Carro">
- 
-     <p>Modelo: coupe <span id="modelo">Sedan</span></p>
-     <p>Cor: vermelho <span id="cor">Vermelho</span></p>
-     <p>Velocidade: <span id="velocidade">0</span> km/h</p>
- 
+     <!-- Este é um arquivo de exemplo standalone para um Carro Esportivo -->
+     <h1>Meu Carro Esportivo</h1>
+
+     <!-- Verificar caminho da imagem -->
+     <img id="carro-imagem" src="img/png-transparent-ford-gt-shelby-mustang-california-special-mustang-2018-ford-mustang-gt-premium-ford-car-performance-car-vehicle.png" alt="Imagem do Carro Esportivo">
+
+     <!-- Spans para exibir informações (usados por java.js) -->
+     <!-- Note que os IDs 'modelo' e 'cor' são diferentes de index.html, mas java.js tenta atualizar ambos -->
+     <p>Modelo: <span id="modelo">Carregando...</span></p>
+     <p>Cor: <span id="cor">Carregando...</span></p>
+     <p>Velocidade: <span id="velocidade">0</span> km/h</p> <!-- ID 'velocidade' é comum -->
+     <!-- Não há span para 'estadoCarro' aqui -->
+
+     <!-- Botões de ação (IDs usados por java.js) -->
      <button id="ligar">Ligar</button>
      <button id="desligar">Desligar</button>
      <button id="acelerar">Acelerar</button>
-     <button id="turbo">Turbo</button>
- 
-     <p id="mensagem"></p> <!-- Elemento para exibir mensagens -->
+     <button id="turbo">Turbo</button> <!-- Botão específico -->
 
- 
-     <script src="java.js"></script> <!-- Link para o JavaScript -->
+     <!-- Parágrafo para exibir mensagens de feedback -->
+     <p id="mensagem"></p>
 
+     <!-- Link para o script JS (java.js, que contém a classe Carro com método turbo) -->
+     <script src="java.js"></script>
 
-
-    
  </body>
  </html>

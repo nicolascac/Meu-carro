@@ -1,0 +1,649 @@
+/* ==========================================================================
+   style.css - Estilos Completos para Garagem Inteligente com Manutenção
+   ========================================================================== */
+
+/* --- Reset Básico e Configurações Globais --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px; /* Base para REMs */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa; /* Cinza muito claro */
+    color: #343a40; /* Cinza escuro para texto */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza conteúdo na página */
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px; /* Largura máxima para o conteúdo principal */
+    margin: 0 auto; /* Centraliza o container */
+}
+
+/* --- Tipografia --- */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75rem;
+    font-weight: 600; /* Um pouco mais forte */
+    line-height: 1.3;
+    color: #212529; /* Quase preto */
+}
+
+h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    color: #007bff; /* Azul primário */
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid #dee2e6; /* Borda cinza mais clara */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #495057; /* Cinza médio */
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espaço entre ícone e texto */
+}
+/* Ícones nos títulos (se usar spans com emojis ou Font Awesome) */
+h3 span[role="img"], h3 i {
+    font-size: 1.1em; /* Ajusta tamanho do ícone relativo ao h3 */
+}
+
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #e9ecef; /* Cinza bem claro */
+    margin: 2rem 0;
+}
+
+/* --- Botões --- */
+button, .button { /* Classe .button para links estilizados como botões */
+    display: inline-block;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: #007bff; /* Azul Primário */
+    border: 1px solid #007bff;
+    color: #ffffff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.3rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, transform 0.1s ease-in-out;
+    margin: 0.25rem; /* Pequena margem entre botões */
+}
+
+button:hover, .button:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.3);
+}
+
+button:focus, .button:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+button:active, .button:active {
+    background-color: #004085;
+    border-color: #004085;
+    transform: scale(0.98); /* Efeito de clique sutil */
+}
+
+button:disabled, .button:disabled {
+    background-color: #6c757d; /* Cinza */
+    border-color: #6c757d;
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Botão de Navegação Específico */
+.botao-navegacao {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    margin: 1.5rem 0;
+    background-color: #6c757d; /* Cinza */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.botao-navegacao:hover {
+    background-color: #5a6268; /* Cinza mais escuro */
+    transform: translateY(-2px);
+    text-decoration: none; /* Remove underline no hover */
+    color: white;
+}
+
+/* Variações de Cor de Botão */
+button.warning, .button.warning {
+    background-color: #dc3545; /* Vermelho */
+    border-color: #dc3545;
+}
+button.warning:hover, .button.warning:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    box-shadow: 0 2px 5px rgba(220, 53, 69, 0.3);
+}
+button.warning:focus, .button.warning:focus {
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+}
+button.warning:active, .button.warning:active {
+    background-color: #a71d2a;
+    border-color: #a71d2a;
+}
+
+button.success, .button.success {
+    background-color: #28a745; /* Verde */
+    border-color: #28a745;
+}
+button.success:hover, .button.success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    box-shadow: 0 2px 5px rgba(40, 167, 69, 0.3);
+}
+/* ... (Adicionar :focus e :active para .success se necessário) ... */
+
+button.info, .button.info {
+    background-color: #17a2b8; /* Azul Ciano */
+    border-color: #17a2b8;
+}
+button.info:hover, .button.info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+    box-shadow: 0 2px 5px rgba(23, 162, 184, 0.3);
+}
+/* ... (Adicionar :focus e :active para .info se necessário) ... */
+
+
+/* Botão Pequeno (para Remover Manutenção, etc.) */
+button.small, .button.small {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.85rem;
+    border-radius: 0.2rem;
+}
+
+button.small-warning, .button.small-warning {
+    background-color: #ffc107 !important; /* Amarelo/Laranja (Importante para sobrescrever base) */
+    border-color: #ffc107 !important;
+    color: #212529 !important; /* Texto escuro para melhor contraste */
+    padding: 0.3rem 0.8rem !important;
+    font-size: 0.85rem !important;
+    margin-left: 10px !important;
+}
+button.small-warning:hover, .button.small-warning:hover {
+    background-color: #e0a800 !important;
+    border-color: #d39e00 !important;
+    color: #212529 !important;
+    box-shadow: 0 1px 3px rgba(255, 193, 7, 0.4);
+}
+
+/* --- Formulários --- */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #495057;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="datetime-local"],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-bottom: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="datetime-local"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Placeholders */
+::placeholder { color: #adb5bd; opacity: 1; }
+:-ms-input-placeholder { color: #adb5bd; }
+::-ms-input-placeholder { color: #adb5bd; }
+
+/* Estilo para Select (customizado) */
+select {
+    appearance: none; /* Remove estilo padrão */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23495057%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 10px 10px;
+    padding-right: 2.5rem; /* Espaço para seta */
+}
+/* Oculta seta no IE */
+select::-ms-expand { display: none; }
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Campos específicos (Caminhão) */
+#campoCapacidadeCarga {
+    background-color: #e9f5ff; /* Fundo azul claro sutil */
+    padding: 1rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    border: 1px dashed #b8daff;
+}
+
+/* --- Seções (Formulário e Lista) --- */
+.form-section, .list-section {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6; /* Borda suave */
+    padding: 1.8rem 2rem; /* Mais padding */
+    margin-bottom: 2rem;
+    border-radius: 0.5rem; /* Bordas mais arredondadas */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07); /* Sombra sutil */
+}
+
+/* --- Listas de Itens (Veículos, Manutenções, Agendamentos) --- */
+.vehicle-item, .maintenance-item, .schedule-item {
+    display: flex;
+    flex-wrap: wrap; /* Quebra linha em telas menores */
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0; /* Padding vertical */
+    border-bottom: 1px solid #e9ecef; /* Separador claro */
+    gap: 0.8rem; /* Espaço entre texto e botões */
+    transition: background-color 0.2s ease-in-out;
+}
+
+.vehicle-item:last-child,
+.maintenance-item:last-child,
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.vehicle-item:hover, .maintenance-item:hover, .schedule-item:hover {
+    background-color: #f8f9fa; /* Fundo levemente destacado no hover */
+}
+
+/* Texto do item */
+.vehicle-item span, .maintenance-item span, .schedule-item span {
+    flex-grow: 1; /* Ocupa espaço disponível */
+    margin-right: 1rem;
+    word-break: break-word;
+}
+.vehicle-item span strong { color: #0056b3; } /* Destaca modelo */
+.maintenance-item span strong, .schedule-item span strong { color: #343a40; } /* Destaca tipo serviço */
+.maintenance-item span em, .schedule-item span em { color: #6c757d; font-size: 0.9em; } /* Descrição */
+
+
+/* Container de ações dentro do item da lista */
+.vehicle-item .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem; /* Espaço entre botões de ação */
+    flex-shrink: 0; /* Não encolhe */
+}
+
+/* --- Modal --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1050; /* Acima da maioria dos elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto; /* Permite scroll vertical */
+    outline: 0;
+    background-color: rgba(33, 37, 41, 0.75); /* Fundo escuro translúcido */
+    -webkit-backdrop-filter: blur(3px); /* Efeito blur (suporte variado) */
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 850px; /* Modal maior */
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.7rem; /* Raio maior */
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+    outline: 0;
+    margin: 3rem auto; /* Margem para centralizar verticalmente */
+    animation: slideInDown 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes fadeOut {
+    from { opacity: 1; } to { opacity: 0; }
+}
+@keyframes slideInDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideOutUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-50px); opacity: 0; }
+}
+
+/* Animação ao fechar (requer JS para adicionar/remover classe) */
+.modal.fade-out { animation: fadeOut 0.3s ease-in forwards; }
+.modal.fade-out .modal-content { animation: slideOutUp 0.4s ease-in forwards; }
+
+
+/* Cabeçalho, Corpo e Rodapé do Modal (Estrutura Opcional) */
+/* Se não usar, pode aplicar padding direto no .modal-content */
+.modal-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(0.7rem - 1px);
+    border-top-right-radius: calc(0.7rem - 1px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 2rem;
+}
+/* (Você não tem .modal-header/.modal-body, aplique padding no content) */
+.modal-content { padding: 2.5rem 3rem; } /* Ajuste de padding */
+
+/* Título do Modal */
+#modalTituloVeiculo {
+    margin-bottom: 1.5rem; /* Mais espaço abaixo do título */
+    font-size: 1.8rem;
+    color: #495057;
+    text-align: center; /* Centraliza título */
+}
+
+/* Botão Fechar (X) */
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem; /* Maior */
+    font-weight: 300; /* Mais fino */
+    line-height: 1;
+    color: #888;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    transform: scale(1.1);
+    text-decoration: none;
+    opacity: 1;
+    outline: none;
+}
+
+/* Seções dentro do Modal */
+#modalDetalhesVeiculo .info-veiculo,
+#modalDetalhesVeiculo .actions,
+#modalDetalhesVeiculo .list-section,
+#modalDetalhesVeiculo .form-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee; /* Separador mais sutil */
+}
+#modalDetalhesVeiculo .info-veiculo { border-top: none; padding-top: 0;} /* Primeira seção sem borda superior */
+
+/* Detalhes do Veículo no Modal */
+.info-veiculo {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid #e9ecef;
+}
+.info-veiculo p {
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+    color: #495057;
+}
+.info-veiculo p:last-child { margin-bottom: 0; }
+.info-veiculo p strong {
+    color: #212529;
+    min-width: 130px;
+    display: inline-block; /* Alinhamento */
+    margin-right: 0.5rem;
+}
+/* Status Ligado/Desligado/Turbo no Modal */
+.info-veiculo .status-on {
+    color: #28a745;
+    font-weight: bold;
+    padding: 0.1rem 0.4rem;
+    background-color: rgba(40, 167, 69, 0.1);
+    border-radius: 3px;
+}
+.info-veiculo .status-off {
+    color: #dc3545;
+    font-weight: bold;
+    padding: 0.1rem 0.4rem;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 3px;
+}
+
+/* Progresso da Carga (Caminhão) */
+.info-veiculo progress {
+    width: 100%;
+    height: 18px;
+    margin-top: 0.5rem;
+    border-radius: 9px;
+    border: 1px solid #ccc;
+    overflow: hidden; /* Garante que o fundo não vaze */
+}
+/* Estilo da barra de progresso (Webkit - Chrome, Safari) */
+.info-veiculo progress::-webkit-progress-bar {
+    background-color: #e9ecef;
+    border-radius: 9px;
+}
+.info-veiculo progress::-webkit-progress-value {
+    background-color: #007bff; /* Azul */
+    border-radius: 9px;
+    transition: width 0.5s ease-out;
+}
+/* Estilo da barra de progresso (Firefox) */
+.info-veiculo progress::-moz-progress-bar {
+    background-color: #007bff; /* Azul */
+    border-radius: 9px;
+    transition: width 0.5s ease-out;
+}
+
+
+/* Ações do Veículo no Modal */
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    justify-content: center; /* Centraliza botões */
+    padding-bottom: 1rem; /* Espaço extra abaixo */
+}
+/* Container Carga Caminhão no Modal */
+.actions > div { /* Assume que o div de carga é filho direto */
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: center;
+     gap: 0.8rem;
+     padding: 1rem;
+     background-color: #f8f9fa;
+     border-radius: 5px;
+     margin-top: 1rem;
+}
+.actions > div input[type="number"] {
+    width: 120px;
+    margin-bottom: 0; /* Remove margem inferior padrão */
+}
+
+
+/* --- Notificações --- */
+#notificacoes {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 300px;
+    max-width: 450px;
+    z-index: 1060; /* Acima do modal */
+    border-radius: 0.3rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    font-size: 1rem;
+    font-weight: 500;
+    display: block; /* Mantém no DOM, controla visibilidade com opacity/transform */
+    pointer-events: none; /* Não interage enquanto escondido */
+}
+
+#notificacoes.show {
+    opacity: 0.98; /* Leve transparência */
+    transform: translateX(0);
+    pointer-events: auto; /* Permite interação (se houver botão de fechar) */
+}
+
+/* Cores das Notificações */
+#notificacoes.info { background-color: #17a2b8; } /* Ciano */
+#notificacoes.success { background-color: #28a745; } /* Verde */
+#notificacoes.warning { background-color: #ffc107; color: #212529;} /* Amarelo com texto escuro */
+#notificacoes.error { background-color: #dc3545; } /* Vermelho */
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    h1 { font-size: 2.4rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.3rem; }
+    .modal-content { max-width: 700px; }
+    .container { max-width: 900px; }
+}
+
+@media (max-width: 768px) {
+    body { padding: 1rem; }
+    h1 { font-size: 2rem; margin-bottom: 1.5rem; }
+    h2 { font-size: 1.6rem; }
+    .form-section, .list-section { padding: 1.2rem 1.5rem; }
+    .modal-content { width: 95%; margin: 2rem auto; padding: 1.5rem 2rem;}
+    #modalTituloVeiculo { font-size: 1.5rem; }
+
+    .vehicle-item, .maintenance-item, .schedule-item {
+        flex-direction: column;
+        align-items: stretch; /* Faz spans/actions ocuparem largura */
+        gap: 0.5rem;
+        padding: 1rem 0.5rem;
+    }
+    .vehicle-item span, .maintenance-item span, .schedule-item span {
+        margin-right: 0;
+        margin-bottom: 0.5rem; /* Espaço abaixo do texto */
+    }
+    .vehicle-item .actions {
+        justify-content: flex-start; /* Alinha botões à esquerda */
+        width: 100%;
+    }
+    button.small-warning { margin-left: 0 !important; margin-top: 0.5rem;}
+
+    /* Empilha botões de ação do modal */
+    .actions { flex-direction: column; align-items: stretch;}
+    .actions button, .actions .button { width: 100%; }
+    .actions > div { flex-direction: column; } /* Empilha controle de carga */
+    .actions > div input[type="number"] { width: 100%; }
+
+    #notificacoes {
+        min-width: unset;
+        width: calc(100% - 40px); /* Largura quase total */
+        right: 10px;
+        left: 10px;
+        top: 10px;
+        transform: translateY(-150%); /* Anima de cima */
+    }
+    #notificacoes.show { transform: translateY(0); }
+
+}
+
+@media (max-width: 576px) {
+    html { font-size: 15px; } /* Reduz fonte base */
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+    h3 { font-size: 1.2rem; }
+    .form-section, .list-section { padding: 1rem; }
+    .modal-content { padding: 1.5rem; margin: 1rem auto; }
+    .close-button { font-size: 2rem; top: 0.5rem; right: 1rem; }
+    button, .button { padding: 0.5rem 1rem; font-size: 0.95rem; }
+    input[type="text"], input[type="number"], input[type="datetime-local"], select, textarea { padding: 0.5rem 0.7rem; font-size: 0.95rem; }
+    label { font-size: 0.9rem;}
+    .botao-navegacao { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+    .info-veiculo p { font-size: 0.95rem; }
+}
