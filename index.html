@@ -2,33 +2,26 @@
 <html>
 <head>
     <title>Carro Interativo</title>
-    <!-- Link para o CSS principal (style.css), pode ou não ser o estilo desejado -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Este é um arquivo de exemplo standalone para um Carro simples -->
     <h1>Meu Carro</h1>
-    <img id="carroImagem" src="img/images.jpg" alt="Imagem do carro"> <!-- Verificar caminho da imagem -->
+    <img id="carroImagem" src="img/images.jpg" alt="Imagem do carro">
 
-    <!-- Spans para exibir informações do carro (usados por java.js) -->
-    <p>Modelo: <span id="modeloCarro">Carregando...</span></p>
-    <p>Cor: <span id="corCarro">Carregando...</span></p>
-    <p>Velocidade: <span id="velocidade">0</span> km/h</p>
-    <p>Estado: <span id="estadoCarro">Desligado</span></p> <!-- Usado por java.js -->
-    <!-- Parágrafo para exibir mensagens de feedback -->
-    <p id="mensagem"></p>
+    <p>Modelo: <span id="modeloCarro"></span></p>
+    <p>Cor: <span id="corCarro"></span></p>
+    <p>Velocidade: <span id="velocidadeCarro">0</span> km/h</p>
+    <p>Estado: <span id="estadoCarro"></span></p>
+    <p id="mensagemCarro"></p>
 
-    <!-- Botões de ação (IDs usados por java.js) -->
-    <button id="ligar">Ligar</button>
-    <button id="desligar">Desligar</button>
-    <button id="acelerar">Acelerar</button>
-    <!-- Botão Turbo não presente aqui, mas o JS não dará erro -->
+    <button id="ligarBotao">Ligar</button>
+    <button id="desligarBotao">Desligar</button>
+    <button id="acelerarBotao">Acelerar</button>
 
-    <!-- Link para o script JS -->
-    <!-- IMPORTANTE: O link original apontava para script.js (Garagem Avançada) -->
-    <!-- O correto para este exemplo seria java.js -->
-    <!-- <script src="script.js"></script> --> <!-- Link Original Incorreto -->
-    <script src="java.js"></script>      <!-- Link Correto para este exemplo -->
+    <script src="script.js"></script>
 
-</body>
+
+
+
+
 </html>
