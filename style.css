@@ -371,4 +371,245 @@ label {
         border-color: #f5b7b1;
     }
 
+
+
+    /* --- Estilos para Detalhes Extras API (Parte 1) --- */
+#detalhes-extras-api {
+    margin-top: 25px; /* Espaçamento acima */
+    padding-top: 20px; /* Espaçamento interno */
+    border-top: 1px solid #ecf0f1; /* Linha separadora */
+}
+
+#detalhes-extras-api-content p {
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 0.95em;
+}
+#detalhes-extras-api-content p strong {
+    color: #333;
+    min-width: 150px; /* Alinhamento */
+    display: inline-block;
+}
+
+#detalhes-extras-api-content .loading,
+#detalhes-extras-api-content .error {
+    font-style: italic;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+#detalhes-extras-api-content .loading {
+    color: #007bff; /* Azul */
+    background-color: #e7f3ff;
+    border: 1px solid #b8daff;
+}
+
+#detalhes-extras-api-content .error {
+    color: #dc3545; /* Vermelho */
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    font-weight: bold;
+}
+
+/* --- Estilos para Planejador de Viagem (Parte 2) --- */
+#planejador-viagem h3 i {
+    margin-right: 8px;
+    color: #28a745; /* Verde */
+}
+
+#previsao-tempo-resultado {
+    margin-top: 20px;
+    /* display: none; */ /* O JS agora controla a visibilidade */
+    background-color: #f8f9fa; /* Fundo claro */
+    border: 1px solid #dee2e6; /* Borda suave */
+    border-radius: 5px;
+    padding: 15px;
+    transition: all 0.3s ease-in-out; /* Transição suave */
+}
+
+#previsao-tempo-resultado h4 {
+    color: #17a2b8; /* Azul claro */
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+#previsao-tempo-resultado p {
+    margin-bottom: 8px;
+    color: #495057; /* Cinza escuro */
+    line-height: 1.5;
+}
+#previsao-tempo-resultado p i { /* Ícones da previsão */
+    margin-right: 8px;
+    color: #6c757d; /* Cinza médio */
+    width: 1.1em; /* Para alinhar */
+    text-align: center;
+}
+
+#previsao-tempo-resultado img.weather-icon { /* Imagem do ícone */
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 40px; /* Ajuste conforme necessário */
+    height: 40px;
+}
+
+/* Estilos para feedback dentro da div de resultado clima */
+#previsao-tempo-resultado .feedback-clima {
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 0.95em;
+}
+#previsao-tempo-resultado .feedback-clima.loading {
+    background-color: #eef2f7;
+    color: #3498db;
+    border: 1px solid #bdc3c7;
+}
+#previsao-tempo-resultado .feedback-clima.error {
+    background-color: #fbeaea;
+    color: #e74c3c;
+    border: 1px solid #f5b7b1;
+    font-weight: bold;
+}
+#previsao-tempo-resultado .feedback-clima.success {
+    /* Remove estilos específicos de fundo/borda para o sucesso,
+       pois o conteúdo principal já é exibido na div pai */
+    padding: 0;
+    margin-top: 0;
+    border: none;
+    background-color: transparent;
+}
+
+
+/* Ícones FontAwesome (se usados) */
+.fas {
+    margin-right: 5px;
+}
+
+}
+
+
+/* --- Estilos para Previsão Detalhada (B2.P1.A3) --- */
+#previsao-tempo-resultado h4 { /* Título da previsão detalhada */
+    color: #2c3e50; /* Azul escuro, igual aos H2 */
+    margin-bottom: 20px;
+    font-size: 1.5em; /* Um pouco menor que H2 */
+    border-bottom: 1px solid #bdc3c7;
+    padding-bottom: 8px;
+    text-align: left; /* Alinha o título à esquerda */
+}
+#previsao-tempo-resultado h4 i {
+    margin-right: 8px;
+    color: #3498db; /* Azul para o ícone do título */
+}
+
+.forecast-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
+    gap: 15px; /* Espaçamento entre os cards */
+    justify-content: space-around; /* Distribui os cards com espaço ao redor */
+    margin-top: 15px;
+}
+
+.forecast-day-card {
+    background-color: #ffffff; /* Fundo branco para os cards */
+    border: 1px solid #e0e0e0; /* Borda sutil */
+    border-radius: 8px; /* Bordas arredondadas */
+    padding: 15px;
+    width: calc(20% - 15px); /* Tenta exibir 5 cards por linha, ajustando o gap */
+    min-width: 140px; /* Largura mínima para não espremer demais */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07); /* Sombra suave */
+    text-align: center; /* Centraliza o conteúdo do card */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.forecast-day-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.forecast-day-card p {
+    margin-bottom: 8px; /* Espaçamento entre parágrafos no card */
+    font-size: 0.9em; /* Tamanho de fonte menor para os detalhes */
+    color: #555; /* Cor de texto padrão para o card */
+}
+
+.forecast-day-card .forecast-date strong {
+    font-size: 1.1em; /* Data um pouco maior */
+    color: #3498db; /* Azul para a data */
+    display: block; /* Para ocupar a linha toda */
+    margin-bottom: 10px;
+}
+
+.weather-icon-forecast { /* Ícone do tempo no card da previsão */
+    width: 60px;  /* Tamanho maior para o ícone da previsão diária */
+    height: 60px;
+    margin: 0 auto 5px auto; /* Centraliza e dá espaço abaixo */
+}
+
+.forecast-description {
+    font-style: italic;
+    color: #777; /* Cinza mais claro para a descrição */
+    min-height: 2.2em; /* Para evitar que o card mude de altura com descrições de 1 ou 2 linhas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.forecast-temp {
+    font-weight: bold;
+    color: #333; /* Cor mais escura para temperaturas */
+}
+.forecast-temp i { /* Ícones de temperatura */
+    color: #e74c3c; /* Vermelho para max (high) */
+}
+.forecast-temp i.fa-temperature-low {
+    color: #3498db; /* Azul para min (low) */
+}
+
+
+/* Responsividade para os cards da previsão */
+@media (max-width: 992px) { /* Telas menores que large (tablets) */
+    .forecast-day-card {
+        width: calc(33.333% - 15px); /* 3 cards por linha */
+    }
+}
+
+@media (max-width: 768px) { /* Telas menores que medium (tablets pequenos, celulares landscape) */
+    #previsao-tempo-resultado h4 {
+        font-size: 1.3em;
+    }
+    .forecast-day-card {
+        width: calc(50% - 15px); /* 2 cards por linha */
+    }
+}
+
+@media (max-width: 576px) { /* Telas extra small (celulares portrait) */
+    .forecast-container {
+        flex-direction: column; /* Empilha os cards */
+        align-items: center; /* Centraliza os cards empilhados */
+    }
+    .forecast-day-card {
+        width: 80%; /* Cards ocupam mais largura quando empilhados */
+        max-width: 300px; /* Limite para não ficar muito largo */
+        margin-bottom: 15px; /* Espaço entre cards empilhados */
+    }
+     .forecast-day-card:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Estilo para o ícone no card de previsão que estava com nome diferente*/
+#previsao-tempo-resultado img.weather-icon-forecast {
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 60px; /* Ajuste conforme necessário */
+    height: 60px;
+}
+/* Removendo a duplicidade de weather-icon */
+#previsao-tempo-resultado img.weather-icon { /* Imagem do ícone NO MODELO ANTIGO */
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
 }
